@@ -1,0 +1,18 @@
+# Files to exclude from coverage reports
+# Generated files and debugging utilities are typically excluded
+
+# Exclude generated files
+!**/generated_plugin_registrant.dart
+!**/*.g.dart
+!**/*.freezed.dart
+
+# Exclude main.dart since it's mostly bootstrapping code
+!**/main.dart
+
+# Exclude platform-specific implementations
+!**/web/
+!**/android/
+!**/ios/
+!**/linux/
+!**/macos/
+!**/windows/ 
