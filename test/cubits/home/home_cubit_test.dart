@@ -6,6 +6,7 @@ import 'package:home_asset_managment/domain/models/home/home.dart';
 import 'package:home_asset_managment/domain/models/asset/asset.dart';
 import 'package:home_asset_managment/cubits/home/home_cubit.dart';
 import 'package:home_asset_managment/cubits/home/home_state.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class MockHomeRepository extends Mock implements HomeRepository {}
 
@@ -13,13 +14,29 @@ class FakeHome extends Fake implements Home {}
 
 class FakeAsset extends Fake implements Asset {}
 
+// Mock implementation of HydratedStorage for testing
+class MockStorage extends Mock implements Storage {}
+
 void main() {
   late MockHomeRepository mockHomeRepository;
   late HomeCubit homeCubit;
+  late Storage hydratedStorage;
 
   setUpAll(() {
     registerFallbackValue(FakeHome());
     registerFallbackValue(FakeAsset());
+
+    // Initialize a mock storage for HydratedBloc
+    hydratedStorage = MockStorage();
+
+    // Mock the read method to return null (no stored state)
+    when(() => hydratedStorage.read(any())).thenReturn(null);
+
+    // Mock the write method to return a completed future
+    when(() => hydratedStorage.write(any(), any())).thenAnswer((_) async {});
+
+    // Set the mocked storage
+    HydratedBloc.storage = hydratedStorage;
   });
 
   setUp(() {

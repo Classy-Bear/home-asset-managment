@@ -1,0 +1,37 @@
+name: Lint, Test, and Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  lint-test-build:
+    name: Lint, Test & Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Analyze project
+        run: flutter analyze --no-fatal-infos
+      
+      - name: Run tests
+        run: flutter test
+      
+      - name: Build APK
+        if: success()
+        run: flutter build apk --release
+      
+      - name: Upload APK
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk 
