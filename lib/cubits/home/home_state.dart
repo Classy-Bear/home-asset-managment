@@ -23,13 +23,15 @@ class HomeState extends Equatable {
   HomeState copyWith({
     List<Home>? homes,
     int? selectedHome,
+    bool clearSelectedHome = false,
     FetchStatus? fetchStatus,
     Error? error,
     StackTrace? stackTrace,
   }) {
     return HomeState(
       homes: homes ?? this.homes,
-      selectedHome: selectedHome ?? this.selectedHome,
+      selectedHome:
+          clearSelectedHome ? null : selectedHome ?? this.selectedHome,
       fetchStatus: fetchStatus ?? this.fetchStatus,
       error: error ?? this.error,
       stackTrace: stackTrace ?? this.stackTrace,

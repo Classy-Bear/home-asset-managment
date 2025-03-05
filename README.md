@@ -13,8 +13,10 @@ A Flutter application for managing homes and their assets. This app allows users
 ## Tech Stack
 
 - Flutter with Material 3 design
-- BLoC pattern for state management
-- Clean architecture principles
+- Bloc/Cubit pattern for state management
+- Freezed for immutable data models
+- Go Router for navigation
+- Formz for form validation
 - In-memory data storage
 
 ## Getting Started
@@ -29,7 +31,7 @@ A Flutter application for managing homes and their assets. This app allows users
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/home_asset_management.git
+git clone https://github.com/classy-bear/home_asset_management.git
 cd home_asset_management
 ```
 
@@ -45,23 +47,49 @@ flutter run
 
 ## Project Structure
 
-The project follows a clean architecture approach:
+The project follows a domain-driven design with a clear separation of concerns:
 
-- `/lib/domain`: Contains the core business logic, models, and repository interfaces
-- `/lib/data`: Implements the repositories defined in the domain layer
-- `/lib/presentation`: Contains the UI components (screens, widgets) and BLoC state management
-- `/lib/core`: Houses utilities and shared functions
+- `/lib/domain/`: Contains the core business logic and models
+  - `/models/`: Data models like Home and Asset using Freezed for immutability
+  - `/repositories/`: Repository interfaces defining the data access contracts
+
+- `/lib/data/`: Implements the repositories defined in the domain layer
+  - `/repositories/`: Contains implementations like InMemoryHomeRepository
+
+- `/lib/cubits/`: State management using the Bloc/Cubit pattern
+  - `/home/`: Manages state for home listing and operations
+  - `/home_form/`: Manages state for home creation/editing forms
+
+- `/lib/modules/`: UI components organized by feature
+  - `/screens/`: Main screens like HomeListScreen and HomeFormScreen
+  - `/widgets/`: Reusable UI components
+
+- `/lib/router.dart`: Application routing using Go Router
+- `/lib/main.dart`: Entry point of the application
 
 ## Design Choices & Trade-offs
 
 ### State Management
-I chose the BLoC pattern for state management as it provides a clear separation of concerns, making the codebase more maintainable and testable. Flutter_bloc provides a concise API for implementing the pattern.
+The application uses the Bloc/Cubit pattern for state management, providing a clear separation of concerns and making the codebase more maintainable and testable. Flutter_bloc provides a concise API for implementing this pattern.
+
+### Model Implementation
+Models are implemented using Freezed for immutability, which provides:
+- Immutable data structures
+- Built-in equality checks
+- Serialization/deserialization (toJson/fromJson)
+- Pattern matching with copyWith functionality
+
+### Form Validation
+Formz is used for form validation, providing a structured approach to input validation and form state management.
+
+### Navigation
+Go Router is used for declarative routing, supporting deep linking and nested navigation with a clean API.
 
 ### Data Storage
-For this implementation, I used in-memory storage with predefined assets. In a production environment, this would be replaced with a persistent storage solution (SQLite, Firestore, etc.).
+For this implementation, an in-memory repository is used with predefined assets. In a production environment, this would be replaced with a persistent storage solution (SQLite, Firestore, etc.).
 
 ### UI/UX
-I prioritized a clean, intuitive interface using Material 3 design principles. The app includes features like:
+The application follows Material 3 design principles with a clean, intuitive interface including:
 - Slidable list items for quick actions
 - Visual categorization of assets by type
 - Search functionality for asset selection
@@ -69,10 +97,15 @@ I prioritized a clean, intuitive interface using Material 3 design principles. T
 
 ## Running Tests
 
-Execute the tests using the following command:
+The project includes both unit tests and widget tests:
 
 ```bash
+# Run all tests
 flutter test
+
+# Run specific test files
+flutter test test/domain/models/home_test.dart
+flutter test test/modules/screens/home_list_screen_test.dart
 ```
 
 ## Potential Improvements

@@ -124,6 +124,19 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     return Formz.validate([name, street, city, state, zipCode]);
   }
 
+  void resetForm() {
+    emit(const HomeFormState(
+      name: NameInput.pure(),
+      street: StreetInput.pure(),
+      city: CityInput.pure(),
+      state: StateInput.pure(),
+      zipCode: ZipCodeInput.pure(),
+      status: HomeFormStatus.initial,
+      formStatus: FormzSubmissionStatus.initial,
+      isValid: false,
+    ));
+  }
+
   Future<void> submitForm() async {
     if (!state.isValid) return;
 

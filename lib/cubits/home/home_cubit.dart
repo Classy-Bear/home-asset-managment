@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_asset_managment/domain/models/asset/asset.dart';
 import 'package:home_asset_managment/domain/models/home/home.dart';
 import 'package:home_asset_managment/domain/repositories/home_repository.dart';
+import 'package:collection/collection.dart'; 
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -10,14 +11,14 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit({required this.homeRepository})
       : super(const HomeState(homes: [], fetchStatus: FetchStatus.initial));
 
-  Home getHome(int id) {
-    return state.homes.firstWhere((home) => home.id == id);
+  Home? getHome(int id) {
+    return state.homes.firstWhereOrNull((home) => home.id == id);
   }
 
   Future<void> loadHomes() async {
-    emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
       if (state.homes.isEmpty) {
+        emit(state.copyWith(fetchStatus: FetchStatus.loading));
         final homes = await homeRepository.getHomes();
         emit(state.copyWith(homes: homes, fetchStatus: FetchStatus.loaded));
       }
@@ -48,7 +49,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> unchooseHome() async {
     emit(state.copyWith(
-      selectedHome: null,
+      clearSelectedHome: true,
       fetchStatus: FetchStatus.loaded,
     ));
   }

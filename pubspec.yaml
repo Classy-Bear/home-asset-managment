@@ -52,6 +52,7 @@ dependencies:
 
   # Form validation
   formz: ^0.8.0
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +65,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   bloc_test: ^9.1.6
-  mockito: ^5.4.4
+  mocktail: ^1.0.4
   build_runner: ^2.4.8
   freezed: ^2.4.7
   json_serializable: ^6.7.1
