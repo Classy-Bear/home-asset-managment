@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_asset_managment/cubits/home/home_cubit.dart';
 import 'package:home_asset_managment/data/repositories/in_memory_home_repository.dart';
 import 'package:home_asset_managment/router.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await initializeStorage();
   runApp(const MyApp());
+}
+
+Future<Storage> initializeStorage() async {
+  return HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getApplicationDocumentsDirectory(),
+  );
 }
 
 class MyApp extends StatelessWidget {
