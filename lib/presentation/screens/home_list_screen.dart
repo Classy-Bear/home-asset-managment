@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:home_asset_managment/cubits/home/home_cubit.dart';
 import 'package:home_asset_managment/cubits/home/home_state.dart';
 import 'package:home_asset_managment/domain/models/home/home.dart';
-import 'package:home_asset_managment/modules/widgets/confirm_delete.dart';
+import 'package:home_asset_managment/presentation/widgets/confirm_delete.dart';
 
 class HomeListScreen extends StatelessWidget {
   const HomeListScreen({super.key});
