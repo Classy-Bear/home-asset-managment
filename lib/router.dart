@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_asset_managment/modules/screens/asset_selector_screen.dart';
-import 'package:home_asset_managment/modules/screens/home_detail_screen.dart';
-import 'package:home_asset_managment/modules/screens/home_form_screen.dart';
-import 'package:home_asset_managment/modules/screens/home_list_screen.dart';
+import 'package:home_asset_managment/presentation/screens/asset_selector_screen.dart';
+import 'package:home_asset_managment/presentation/screens/home_detail_screen.dart';
+import 'package:home_asset_managment/presentation/screens/home_form_screen.dart';
+import 'package:home_asset_managment/presentation/screens/home_list_screen.dart';
 
 /// The router configuration for the app.
 final GoRouter router = GoRouter(

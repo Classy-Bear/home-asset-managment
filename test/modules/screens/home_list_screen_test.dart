@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:home_asset_managment/cubits/home/home_cubit.dart';
 import 'package:home_asset_managment/cubits/home/home_state.dart';
 import 'package:home_asset_managment/domain/models/home/home.dart';
-import 'package:home_asset_managment/modules/screens/home_list_screen.dart';
+import 'package:home_asset_managment/presentation/screens/home_list_screen.dart';
 import 'dart:async';
 
 class MockHomeCubit extends Mock implements HomeCubit {

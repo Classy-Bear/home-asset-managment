@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:home_asset_managment/modules/widgets/confirm_delete.dart';
+import 'package:home_asset_managment/presentation/widgets/confirm_delete.dart';
 
 void main() {
   group('ConfirmDelete', () {
