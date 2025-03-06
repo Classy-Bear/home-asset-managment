@@ -23,7 +23,6 @@ class HomeDetailScreen extends StatelessWidget {
       ),
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
-          print('state.fetchStatus home_detail_screen: ${state.fetchStatus} ${state.homes.firstWhere((home) => home.id == homeId).assets.length}');
           if (state.fetchStatus.isLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state.fetchStatus.isLoaded) {
