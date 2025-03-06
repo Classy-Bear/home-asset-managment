@@ -55,6 +55,9 @@ dependencies:
   # Form validation
   formz: ^0.8.0
   collection: ^1.18.0
+  
+  # Firebase
+  firebase_core: ^2.27.1
 
 dev_dependencies:
   flutter_test:
