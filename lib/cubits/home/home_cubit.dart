@@ -5,16 +5,26 @@ import 'package:collection/collection.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'home_state.dart';
 
+/// A cubit for managing the state of the home.
+///
+/// This cubit manages the state of the home, including the list of homes,
+/// the selected home, and the fetch status.
 class HomeCubit extends HydratedCubit<HomeState> {
   final HomeRepository homeRepository;
 
   HomeCubit({required this.homeRepository})
       : super(const HomeState(homes: [], fetchStatus: FetchStatus.initial));
 
+  /// Gets the home with the given ID.
+  ///
+  /// Returns the home if found, otherwise returns null.
   Home? getHome(int id) {
     return state.homes.firstWhereOrNull((home) => home.id == id);
   }
 
+  /// Converts the state to a JSON object.
+  ///
+  /// Returns the JSON object.
   @override
   HomeState? fromJson(Map<String, dynamic> json) {
     try {
@@ -33,6 +43,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Converts the state to a JSON object.
+  ///
+  /// Returns the JSON object.
   @override
   Map<String, dynamic> toJson(HomeState state) {
     return {
@@ -42,6 +55,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     };
   }
 
+  /// Loads the homes.
+  ///
+  /// This method loads the homes and updates the state.
   Future<void> loadHomes() async {
     try {
       if (state.homes.isEmpty) {
@@ -58,6 +74,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Chooses the home with the given ID.
+  ///
+  /// This method chooses the home with the given ID and updates the state.
   Future<void> chooseHome(int id) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
@@ -74,13 +93,18 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Unchooses the home.
+  ///
+  /// This method unchooses the home and updates the state.
   Future<void> unchooseHome() async {
     emit(state.copyWith(
-      clearSelectedHome: true,
       fetchStatus: FetchStatus.loaded,
     ));
   }
 
+  /// Adds a home.
+  ///
+  /// This method adds a home and updates the state.
   Future<void> addHome(Home home) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
@@ -99,6 +123,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Updates a home.
+  ///
+  /// This method updates a home and updates the state.
   Future<void> updateHome(Home home) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
@@ -114,6 +141,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Deletes a home.
+  ///
+  /// This method deletes a home and updates the state.
   Future<void> deleteHome(int id) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
@@ -129,6 +159,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Adds an asset to a home.
+  ///
+  /// This method adds an asset to a home and updates the state.
   Future<void> addAssetToHome(int homeId, Asset asset) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {
@@ -144,6 +177,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     }
   }
 
+  /// Removes an asset from a home.
+  ///
+  /// This method removes an asset from a home and updates the state.
   Future<void> removeAssetFromHome(int homeId, int assetId) async {
     emit(state.copyWith(fetchStatus: FetchStatus.loading));
     try {

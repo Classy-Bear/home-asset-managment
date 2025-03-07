@@ -8,7 +8,12 @@ import 'package:home_asset_managment/domain/models/home/home.dart';
 import 'package:home_asset_managment/domain/models/asset/asset.dart';
 import 'package:home_asset_managment/presentation/widgets/confirm_delete.dart';
 
+/// A screen that displays the details of a home.
+///
+/// This screen shows the details of a home, including its name, address, and assets.
+/// The user can also add a new asset to the home.
 class HomeDetailScreen extends StatelessWidget {
+  /// The ID of the home to display.
   final int homeId;
 
   const HomeDetailScreen({super.key, required this.homeId});
@@ -49,7 +54,12 @@ class HomeDetailScreen extends StatelessWidget {
   }
 }
 
+/// A widget that displays the details of a home.
+///
+/// This widget shows the details of a home, including its name, address, and assets.
+/// The user can also add a new asset to the home.
 class HomeDetailView extends StatelessWidget {
+  /// The home to display.
   final Home home;
 
   const HomeDetailView({super.key, required this.home});
@@ -70,7 +80,12 @@ class HomeDetailView extends StatelessWidget {
   }
 }
 
+/// A widget that displays the details of a home.
+///
+/// This widget shows the details of a home, including its name, address, and assets.
+/// The user can also add a new asset to the home.
 class HomeInfoCard extends StatelessWidget {
+  /// The home to display.
   final Home home;
 
   const HomeInfoCard({super.key, required this.home});
@@ -125,7 +140,12 @@ class HomeInfoCard extends StatelessWidget {
   }
 }
 
+/// A widget that displays the assets of a home.
+///
+/// This widget shows the assets of a home, including their name, description, and category.
+/// The user can also remove an asset from the home.
 class AssetsSection extends StatelessWidget {
+  /// The home to display.
   final Home home;
 
   const AssetsSection({super.key, required this.home});
@@ -165,8 +185,15 @@ class AssetsSection extends StatelessWidget {
   }
 }
 
+/// A widget that displays an asset of a home.
+///
+/// This widget shows an asset of a home, including its name, description, and category.
+/// The user can also remove the asset from the home.
 class AssetItem extends StatelessWidget {
+  /// The asset to display.
   final Asset asset;
+
+  /// The ID of the home to display.
   final int homeId;
 
   const AssetItem({super.key, required this.asset, required this.homeId});

@@ -5,7 +5,12 @@ import '../home/home_cubit.dart';
 import 'home_form_inputs.dart';
 import 'home_form_state.dart';
 
+/// A cubit that manages the state of the home form.
+///
+/// This cubit manages the state of the home form, including the form inputs and validation.
+/// It also manages the submission of the form and the reset of the form.
 class HomeFormCubit extends Cubit<HomeFormState> {
+  /// The home cubit.
   final HomeCubit homeCubit;
 
   HomeFormCubit({required this.homeCubit, Home? initialHome})
@@ -32,6 +37,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     }
   }
 
+  /// Called when the name input changes.
+  ///
+  /// This method updates the name input and validates the form.
   void nameChanged(String value) {
     final name = NameInput.dirty(value);
     emit(state.copyWith(
@@ -46,6 +54,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Called when the street input changes.
+  ///
+  /// This method updates the street input and validates the form.
   void streetChanged(String value) {
     final street = StreetInput.dirty(value);
     emit(state.copyWith(
@@ -60,6 +71,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Called when the city input changes.
+  ///
+  /// This method updates the city input and validates the form.
   void cityChanged(String value) {
     final city = CityInput.dirty(value);
     emit(state.copyWith(
@@ -74,6 +88,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Called when the state input changes.
+  ///
+  /// This method updates the state input and validates the form.
   void stateChanged(String value) {
     final stateInput = StateInput.dirty(value);
     emit(state.copyWith(
@@ -88,6 +105,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Called when the zip code input changes.
+  ///
+  /// This method updates the zip code input and validates the form.
   void zipCodeChanged(String value) {
     final zipCode = ZipCodeInput.dirty(value);
     emit(state.copyWith(
@@ -102,6 +122,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Called when the form is validated.
+  ///
+  /// This method validates the form and updates the state.
   void validateForm() {
     emit(state.copyWith(
       isValid: _validateForm(
@@ -114,6 +137,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Validates the form.
+  ///
+  /// This method validates the form and returns a boolean value.
   bool _validateForm({
     required NameInput name,
     required StreetInput street,
@@ -124,6 +150,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     return Formz.validate([name, street, city, state, zipCode]);
   }
 
+  /// Resets the form.
+  ///
+  /// This method resets the form to its initial state.
   void resetForm() {
     emit(const HomeFormState(
       name: NameInput.pure(),
@@ -137,6 +166,9 @@ class HomeFormCubit extends Cubit<HomeFormState> {
     ));
   }
 
+  /// Submits the form.
+  ///
+  /// This method submits the form and updates the home.
   Future<void> submitForm() async {
     if (!state.isValid) return;
 

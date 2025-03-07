@@ -2,10 +2,18 @@ import '../../domain/models/home/home.dart';
 import '../../domain/models/asset/asset.dart';
 import '../../domain/repositories/home_repository.dart';
 
+/// In-memory implementation of the [HomeRepository] interface.
+///
+/// This repository stores all data in memory and is intended for development
+/// and testing purposes. Data will be lost when the application restarts.
 class InMemoryHomeRepository implements HomeRepository {
+  /// In-memory storage for homes.
   final List<Home> _homes = [];
+
+  /// Next available ID for new homes.
   int _nextHomeId = 1;
 
+  /// Predefined list of assets that can be added to homes.
   static const List<Asset> _predefinedAssets = [
     Asset(
       id: 1,

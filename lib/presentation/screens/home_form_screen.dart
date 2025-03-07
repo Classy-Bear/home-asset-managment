@@ -4,7 +4,12 @@ import 'package:formz/formz.dart';
 import 'package:home_asset_managment/cubits/home/home_cubit.dart';
 import 'package:home_asset_managment/cubits/home_form/home_form.dart';
 
+/// A screen that displays a form for creating or editing a home.
+///
+/// This screen allows the user to input the details of a home, such as its name, address, and ZIP code.
+/// The user can also add or update a home.
 class HomeFormScreen extends StatelessWidget {
+  /// The ID of the home to edit, if any.
   final int? homeId;
 
   const HomeFormScreen({super.key, this.homeId});
@@ -26,6 +31,10 @@ class HomeFormScreen extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class HomeFormView extends StatelessWidget {
   const HomeFormView({super.key});
 
@@ -78,6 +87,10 @@ class HomeFormView extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class NameInput extends StatelessWidget {
   const NameInput({super.key});
 
@@ -107,6 +120,10 @@ class NameInput extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class AddressSection extends StatelessWidget {
   const AddressSection({super.key});
 
@@ -148,6 +165,10 @@ class AddressSection extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class StreetInput extends StatelessWidget {
   const StreetInput({super.key});
 
@@ -176,6 +197,10 @@ class StreetInput extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class CityInput extends StatelessWidget {
   const CityInput({super.key});
 
@@ -203,6 +228,10 @@ class CityInput extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class StateInput extends StatelessWidget {
   const StateInput({super.key});
 
@@ -234,6 +263,10 @@ class StateInput extends StatelessWidget {
   }
 }
 
+/// A widget that displays a form for creating or editing a home.
+///
+/// This widget shows a form for creating or editing a home, with fields for the home's name, address, and ZIP code.
+/// The user can also add or update a home.
 class ZipCodeInput extends StatelessWidget {
   const ZipCodeInput({super.key});
 
@@ -264,6 +297,10 @@ class ZipCodeInput extends StatelessWidget {
   }
 }
 
+/// A widget that displays a submit button for a home form.
+///
+/// This widget shows a submit button for a home form, which allows the user to add or update a home.
+/// The button is disabled if the form is not valid or if the form is in progress.
 class SubmitButton extends StatelessWidget {
   const SubmitButton({super.key});
 

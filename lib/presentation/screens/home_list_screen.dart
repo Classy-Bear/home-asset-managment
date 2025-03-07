@@ -7,6 +7,11 @@ import 'package:home_asset_managment/cubits/home/home_state.dart';
 import 'package:home_asset_managment/domain/models/home/home.dart';
 import 'package:home_asset_managment/presentation/widgets/confirm_delete.dart';
 
+/// A screen that displays a list of homes.
+///
+/// This screen shows a list of homes and allows the user to add a new home.
+/// The homes are fetched from the [HomeCubit] and displayed in a list.
+/// The user can also edit or delete a home.
 class HomeListScreen extends StatelessWidget {
   const HomeListScreen({super.key});
 
@@ -52,6 +57,11 @@ class HomeListScreen extends StatelessWidget {
   }
 }
 
+/// A widget that displays a list of homes.
+///
+/// This widget shows a list of homes and allows the user to add a new home.
+/// The homes are fetched from the [HomeCubit] and displayed in a list.
+/// The user can also edit or delete a home.
 class HomesList extends StatelessWidget {
   final List<Home> homes;
 
@@ -96,10 +106,20 @@ class HomesList extends StatelessWidget {
   }
 }
 
+/// A widget that displays a single home in the list.
+///
+/// This widget shows a single home and allows the user to edit or delete it.
 class HomeListItem extends StatelessWidget {
+  /// The home to display.
   final Home home;
+
+  /// The callback function to be called when the home is tapped.
   final VoidCallback onTap;
+
+  /// The callback function to be called when the home is deleted.
   final VoidCallback onDelete;
+
+  /// The callback function to be called when the home is edited.
   final VoidCallback onEdit;
 
   const HomeListItem({

@@ -10,6 +10,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+/// Entry point for the Home Asset Management application.
+///
+/// Initializes Firebase, sets up HydratedBloc for state persistence,
+/// and starts the Flutter application.
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -19,6 +23,12 @@ void main() async {
   runApp(const MyApp());
 }
 
+/// Initializes storage for HydratedBloc based on platform.
+///
+/// On web platforms, uses web storage directory. On other platforms,
+/// uses the application documents directory.
+///
+/// Returns a [Storage] instance for HydratedBloc.
 Future<Storage> initializeStorage() async {
   return HydratedStorage.build(
     storageDirectory: kIsWeb
@@ -27,6 +37,10 @@ Future<Storage> initializeStorage() async {
   );
 }
 
+/// Root widget of the Home Asset Management application.
+///
+/// Sets up the application theme, dependency injection for state management,
+/// and configures the router for navigation.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
