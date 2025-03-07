@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:home_asset_managment/presentation/screens/asset_selector_screen.dart';
-import 'package:home_asset_managment/presentation/screens/home_detail_screen.dart';
-import 'package:home_asset_managment/presentation/screens/home_form_screen.dart';
-import 'package:home_asset_managment/presentation/screens/home_list_screen.dart';
+import 'package:home_asset_managment/presentation/modules/asset_selector/asset_selector_screen.dart';
+import 'package:home_asset_managment/presentation/modules/home_detail/home_detail_screen.dart';
+import 'package:home_asset_managment/presentation/modules/home_form/home_form_screen.dart';
+import 'package:home_asset_managment/presentation/modules/home_list/home_list_screen.dart';
 
 /// The application's route configuration.
 ///

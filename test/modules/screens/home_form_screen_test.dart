@@ -9,7 +9,8 @@ import 'package:home_asset_managment/cubits/home_form/home_form_cubit.dart';
 import 'package:home_asset_managment/cubits/home_form/home_form_state.dart';
 import 'package:home_asset_managment/cubits/home_form/home_form_inputs.dart'
     as inputs;
-import 'package:home_asset_managment/presentation/screens/home_form_screen.dart';
+import 'package:home_asset_managment/presentation/modules/home_form/home_form_screen.dart';
+import 'package:home_asset_managment/presentation/modules/home_form/widgets/widgets.dart';
 import 'dart:async';
 
 // Mock dependencies
