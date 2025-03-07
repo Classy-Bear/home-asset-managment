@@ -20,9 +20,16 @@ Home _$HomeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Home {
+  /// Unique identifier for the home.
   int get id => throw _privateConstructorUsedError;
+
+  /// Descriptive name of the home (e.g., "Main Residence", "Vacation Home").
   String get name => throw _privateConstructorUsedError;
+
+  /// Physical location details of the home.
   Address get address => throw _privateConstructorUsedError;
+
+  /// Collection of assets associated with this home.
   List<Asset> get assets => throw _privateConstructorUsedError;
 
   /// Serializes this Home to a JSON map.
@@ -159,13 +166,22 @@ class _$HomeImpl implements _Home {
   factory _$HomeImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomeImplFromJson(json);
 
+  /// Unique identifier for the home.
   @override
   final int id;
+
+  /// Descriptive name of the home (e.g., "Main Residence", "Vacation Home").
   @override
   final String name;
+
+  /// Physical location details of the home.
   @override
   final Address address;
+
+  /// Collection of assets associated with this home.
   final List<Asset> _assets;
+
+  /// Collection of assets associated with this home.
   @override
   @JsonKey()
   List<Asset> get assets {
@@ -220,12 +236,19 @@ abstract class _Home implements Home {
 
   factory _Home.fromJson(Map<String, dynamic> json) = _$HomeImpl.fromJson;
 
+  /// Unique identifier for the home.
   @override
   int get id;
+
+  /// Descriptive name of the home (e.g., "Main Residence", "Vacation Home").
   @override
   String get name;
+
+  /// Physical location details of the home.
   @override
   Address get address;
+
+  /// Collection of assets associated with this home.
   @override
   List<Asset> get assets;
 
@@ -243,9 +266,16 @@ Address _$AddressFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Address {
+  /// Street number and name (e.g., "123 Main St").
   String get street => throw _privateConstructorUsedError;
+
+  /// City name.
   String get city => throw _privateConstructorUsedError;
+
+  /// State name or abbreviation.
   String get state => throw _privateConstructorUsedError;
+
+  /// US ZIP code.
   String get zipCode => throw _privateConstructorUsedError;
 
   /// Serializes this Address to a JSON map.
@@ -368,12 +398,19 @@ class _$AddressImpl extends _Address {
   factory _$AddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$AddressImplFromJson(json);
 
+  /// Street number and name (e.g., "123 Main St").
   @override
   final String street;
+
+  /// City name.
   @override
   final String city;
+
+  /// State name or abbreviation.
   @override
   final String state;
+
+  /// US ZIP code.
   @override
   final String zipCode;
 
@@ -423,12 +460,19 @@ abstract class _Address extends Address {
 
   factory _Address.fromJson(Map<String, dynamic> json) = _$AddressImpl.fromJson;
 
+  /// Street number and name (e.g., "123 Main St").
   @override
   String get street;
+
+  /// City name.
   @override
   String get city;
+
+  /// State name or abbreviation.
   @override
   String get state;
+
+  /// US ZIP code.
   @override
   String get zipCode;
 

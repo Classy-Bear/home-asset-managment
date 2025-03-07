@@ -1,55 +1,7 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/models/home/home.dart';
 
-/// State for the home listing and management feature.
-///
-/// Tracks the list of homes, their fetch status, currently selected home,
-/// and any errors that occur during data operations.
-class HomeState extends Equatable {
-  /// List of all homes available in the application.
-  final List<Home> homes;
-
-  /// Current status of the data fetching operation.
-  final FetchStatus fetchStatus;
-
-  /// ID of the currently selected home, if any.
-  final int? selectedHome;
-
-  /// Error that occurred during a data operation, if any.
-  final Error? error;
-
-  /// Stack trace associated with the error, if any.
-  final StackTrace? stackTrace;
-
-  const HomeState({
-    required this.homes,
-    required this.fetchStatus,
-    this.selectedHome,
-    this.error,
-    this.stackTrace,
-  });
-
-  @override
-  List<Object?> get props =>
-      [homes, selectedHome, fetchStatus, error, stackTrace];
-
-  /// Creates a copy of this state with the given fields replaced.
-  HomeState copyWith({
-    List<Home>? homes,
-    int? selectedHome,
-    FetchStatus? fetchStatus,
-    Error? error,
-    StackTrace? stackTrace,
-  }) {
-    return HomeState(
-      homes: homes ?? this.homes,
-      selectedHome: selectedHome ?? this.selectedHome,
-      fetchStatus: fetchStatus ?? this.fetchStatus,
-      error: error ?? this.error,
-      stackTrace: stackTrace ?? this.stackTrace,
-    );
-  }
-}
+part 'home_state.freezed.dart';
 
 /// Status of data fetching operations.
 enum FetchStatus {
@@ -79,4 +31,28 @@ extension FetchStatusX on FetchStatus {
 
   /// Whether this status is [FetchStatus.error].
   bool get isError => this == FetchStatus.error;
+}
+
+/// State for the home listing and management feature.
+///
+/// Tracks the list of homes, their fetch status, currently selected home,
+/// and any errors that occur during data operations.
+@freezed
+class HomeState with _$HomeState {
+  const factory HomeState({
+    /// List of all homes available in the application.
+    @Default([]) List<Home> homes,
+
+    /// Current status of the data fetching operation.
+    @Default(FetchStatus.initial) FetchStatus fetchStatus,
+
+    /// ID of the currently selected home, if any.
+    int? selectedHome,
+
+    /// Error that occurred during a data operation, if any.
+    Error? error,
+
+    /// Stack trace associated with the error, if any.
+    StackTrace? stackTrace,
+  }) = _HomeState;
 }

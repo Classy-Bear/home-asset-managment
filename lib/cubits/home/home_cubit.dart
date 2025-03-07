@@ -12,8 +12,7 @@ import 'home_state.dart';
 class HomeCubit extends HydratedCubit<HomeState> {
   final HomeRepository homeRepository;
 
-  HomeCubit({required this.homeRepository})
-      : super(const HomeState(homes: [], fetchStatus: FetchStatus.initial));
+  HomeCubit({required this.homeRepository}) : super(const HomeState());
 
   /// Gets the home with the given ID.
   ///
@@ -22,9 +21,9 @@ class HomeCubit extends HydratedCubit<HomeState> {
     return state.homes.firstWhereOrNull((home) => home.id == id);
   }
 
-  /// Converts the state to a JSON object.
+  /// Converts the JSON to a state object.
   ///
-  /// Returns the JSON object.
+  /// Returns the state object.
   @override
   HomeState? fromJson(Map<String, dynamic> json) {
     try {
