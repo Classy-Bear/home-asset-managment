@@ -20,14 +20,31 @@ Asset _$AssetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Asset {
+  /// Unique identifier for the asset.
   int get id => throw _privateConstructorUsedError;
+
+  /// Name of the asset (e.g., "Refrigerator", "Furnace").
   String get name => throw _privateConstructorUsedError;
+
+  /// Category the asset belongs to (e.g., "Appliance", "HVAC").
   String get category => throw _privateConstructorUsedError;
+
+  /// Detailed description of the asset.
   String get description => throw _privateConstructorUsedError;
+
+  /// Date when the asset was installed.
   DateTime? get installationDate => throw _privateConstructorUsedError;
+
+  /// Date when the asset was last serviced.
   DateTime? get lastServiceDate => throw _privateConstructorUsedError;
+
+  /// Company that manufactured the asset.
   String? get manufacturer => throw _privateConstructorUsedError;
+
+  /// Model number of the asset.
   String? get modelNumber => throw _privateConstructorUsedError;
+
+  /// Serial number of the asset.
   String? get serialNumber => throw _privateConstructorUsedError;
 
   /// Serializes this Asset to a JSON map.
@@ -222,22 +239,39 @@ class _$AssetImpl implements _Asset {
   factory _$AssetImpl.fromJson(Map<String, dynamic> json) =>
       _$$AssetImplFromJson(json);
 
+  /// Unique identifier for the asset.
   @override
   final int id;
+
+  /// Name of the asset (e.g., "Refrigerator", "Furnace").
   @override
   final String name;
+
+  /// Category the asset belongs to (e.g., "Appliance", "HVAC").
   @override
   final String category;
+
+  /// Detailed description of the asset.
   @override
   final String description;
+
+  /// Date when the asset was installed.
   @override
   final DateTime? installationDate;
+
+  /// Date when the asset was last serviced.
   @override
   final DateTime? lastServiceDate;
+
+  /// Company that manufactured the asset.
   @override
   final String? manufacturer;
+
+  /// Model number of the asset.
   @override
   final String? modelNumber;
+
+  /// Serial number of the asset.
   @override
   final String? serialNumber;
 
@@ -313,22 +347,39 @@ abstract class _Asset implements Asset {
 
   factory _Asset.fromJson(Map<String, dynamic> json) = _$AssetImpl.fromJson;
 
+  /// Unique identifier for the asset.
   @override
   int get id;
+
+  /// Name of the asset (e.g., "Refrigerator", "Furnace").
   @override
   String get name;
+
+  /// Category the asset belongs to (e.g., "Appliance", "HVAC").
   @override
   String get category;
+
+  /// Detailed description of the asset.
   @override
   String get description;
+
+  /// Date when the asset was installed.
   @override
   DateTime? get installationDate;
+
+  /// Date when the asset was last serviced.
   @override
   DateTime? get lastServiceDate;
+
+  /// Company that manufactured the asset.
   @override
   String? get manufacturer;
+
+  /// Model number of the asset.
   @override
   String? get modelNumber;
+
+  /// Serial number of the asset.
   @override
   String? get serialNumber;
 

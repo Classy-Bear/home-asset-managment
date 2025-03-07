@@ -126,7 +126,7 @@ void main() {
         },
         act: (cubit) => cubit.loadHomes(),
         expect: () => [
-          const HomeState(homes: [], fetchStatus: FetchStatus.loading),
+          const HomeState(fetchStatus: FetchStatus.loading),
           HomeState(homes: mockHomes, fetchStatus: FetchStatus.loaded),
         ],
         verify: (_) {

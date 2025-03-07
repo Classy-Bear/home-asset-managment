@@ -154,16 +154,7 @@ class HomeFormCubit extends Cubit<HomeFormState> {
   ///
   /// This method resets the form to its initial state.
   void resetForm() {
-    emit(const HomeFormState(
-      name: NameInput.pure(),
-      street: StreetInput.pure(),
-      city: CityInput.pure(),
-      state: StateInput.pure(),
-      zipCode: ZipCodeInput.pure(),
-      status: HomeFormStatus.initial,
-      formStatus: FormzSubmissionStatus.initial,
-      isValid: false,
-    ));
+    emit(const HomeFormState());
   }
 
   /// Submits the form.

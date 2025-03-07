@@ -30,16 +30,7 @@ class MockHomeCubit extends Mock implements HomeCubit {
 class MockHomeFormCubit extends Mock implements HomeFormCubit {
   final StreamController<HomeFormState> _streamController =
       StreamController<HomeFormState>.broadcast();
-  HomeFormState _state = const HomeFormState(
-    name: inputs.NameInput.pure(),
-    street: inputs.StreetInput.pure(),
-    city: inputs.CityInput.pure(),
-    state: inputs.StateInput.pure(),
-    zipCode: inputs.ZipCodeInput.pure(),
-    status: HomeFormStatus.initial,
-    formStatus: FormzSubmissionStatus.initial,
-    isValid: false,
-  );
+  HomeFormState _state = const HomeFormState();
 
   @override
   HomeFormState get state => _state;
@@ -196,8 +187,7 @@ void main() {
           equals(FormzSubmissionStatus.success));
     });
 
-    testWidgets('shows error snackbar on submission failure',
-        (tester) async {
+    testWidgets('shows error snackbar on submission failure', (tester) async {
       // First set normal state
       mockHomeFormCubit.emit(
         const HomeFormState(

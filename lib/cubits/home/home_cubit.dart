@@ -97,6 +97,7 @@ class HomeCubit extends HydratedCubit<HomeState> {
   /// This method unchooses the home and updates the state.
   Future<void> unchooseHome() async {
     emit(state.copyWith(
+      selectedHome: null,
       fetchStatus: FetchStatus.loaded,
     ));
   }

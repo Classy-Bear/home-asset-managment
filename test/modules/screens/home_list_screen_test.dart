@@ -12,10 +12,7 @@ import 'dart:async';
 class MockHomeCubit extends Mock implements HomeCubit {
   final StreamController<HomeState> _streamController =
       StreamController<HomeState>.broadcast();
-  HomeState _state = const HomeState(
-    homes: [],
-    fetchStatus: FetchStatus.initial,
-  );
+  HomeState _state = const HomeState();
 
   @override
   HomeState get state => _state;
@@ -92,8 +89,7 @@ void main() {
     });
 
     // Test populated homes list
-    testWidgets('displays list of homes when data is loaded',
-        (tester) async {
+    testWidgets('displays list of homes when data is loaded', (tester) async {
       final mockHomes = [
         const Home(
           id: 1,
